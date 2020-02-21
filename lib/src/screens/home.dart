@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nubank/src/components/home/floating_card.dart';
 import 'package:nubank/src/components/home/header.dart';
 import 'package:nubank/src/components/home/account_menu.dart';
 
@@ -23,6 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+          
+          FloatingCard(),
         ],
       ),
     );
