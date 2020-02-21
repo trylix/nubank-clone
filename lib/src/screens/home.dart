@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nubank/src/components/home/header.dart';
+import 'package:nubank/src/components/home/account_menu.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -17,9 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
           SafeArea(
             child: Column(
               children: <Widget>[
-
                 Header('Brendenson Andrade'),
-                
+                AccountMenu(),
               ],
             ),
           ),
