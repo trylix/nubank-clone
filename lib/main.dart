@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
         Provider<DraggableCard>.value(value: DraggableCard()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Nubank',
         theme: appTheme(),
         color: Theme.of(context).primaryColor,
