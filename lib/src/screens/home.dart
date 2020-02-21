@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nubank/src/components/home/floating_card.dart';
 import 'package:nubank/src/components/home/header.dart';
 import 'package:nubank/src/components/home/account_menu.dart';
+import 'package:nubank/src/components/home/tab_menu.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          
+          TabMenu(),
           FloatingCard(),
         ],
       ),
