@@ -16,7 +16,7 @@ class DraggableController {
 
   OpacityController _opacity;
 
-  double _minCardPosition = 18;
+  double _minCardPosition = 16;
   
   double get _currentPosition {
     return _coordY.value / _maxCoordY.value;

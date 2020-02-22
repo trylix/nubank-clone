@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nubank/src/blocs/draggable_controller.dart';
 import 'package:nubank/src/blocs/opacity_controller.dart';
+import 'package:nubank/src/components/home/widgets/nuconta_body.dart';
+import 'package:nubank/src/components/home/widgets/nuconta_footer.dart';
+import 'package:nubank/src/components/home/widgets/nuconta_header.dart';
 import 'package:provider/provider.dart';
 
 class FloatingCard extends StatefulWidget {
@@ -75,14 +78,26 @@ class _FloatingCardState extends State<FloatingCard>
         elevation: 0,
         color: Colors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4),
+          borderRadius: BorderRadius.circular(3),
         ),
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * .5,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[],
+            children: <Widget>[
+              Expanded(
+                child: Column(
+                  children: <Widget>[
+                    NuContaHeader('NuConta'),
+                    NuContaBody('Saldo disponível', 'R\$ 0,00'),
+                    NuContaFooter(
+                        'Compra em Central Presentes de R\$ 60,00 no débito em 10 FEV',
+                        Icons.credit_card),
+                  ],
+                ),
+              )
+            ],
           ),
         ),
       ),
