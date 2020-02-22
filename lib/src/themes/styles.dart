@@ -3,52 +3,28 @@ import 'package:flutter/material.dart';
 ThemeData appTheme() {
   return ThemeData(
     primaryColor: Color(0xFF83259F),
+    primaryColorDark: Colors.black,
     disabledColor: Color.fromRGBO(255, 255, 255, .1),
     hintColor: Color.fromRGBO(255, 255, 255, .5),
     primaryIconTheme: IconThemeData(
       color: Colors.white,
     ),
-    primaryTextTheme: TextTheme(
-      title: TextStyle(
-        color: Colors.white,
-        fontFamily: 'Gotham SSm',
-        fontSize: 14,
-        fontWeight: FontWeight.w300,
-      ),
-
-      subtitle: TextStyle(
-        color: Color.fromRGBO(255, 255, 255, .5),
-        fontFamily: 'Gotham SSm',
-        fontWeight: FontWeight.w300,
-        fontSize: 11,
-      ),
-
+    textTheme: TextTheme(
       display1: TextStyle(
+        fontFamily: 'Gotham SSm Light',
         color: Colors.white,
-        fontFamily: 'Gotham SSm',
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
       ),
-
       display2: TextStyle(
+        fontFamily: 'Gotham SSm Medium',
         color: Colors.white,
-        fontFamily: 'Gotham SSm',
-        fontSize: 15,
-        fontWeight: FontWeight.w500,
       ),
-      
-      overline: TextStyle(
+      display3: TextStyle(
+        fontFamily: 'Gotham SSm Book',
         color: Colors.white,
-        fontFamily: 'Gotham SSm',
-        fontSize: 11,
-        fontWeight: FontWeight.w300,
       ),
-      
-      subhead: TextStyle(
+      display4: TextStyle(
+        fontFamily: 'Gotham SSm Bold',
         color: Colors.white,
-        fontFamily: 'Gotham SSm',
-        fontSize: 11,
-        fontWeight: FontWeight.bold,
       ),
     ),
   );

@@ -9,20 +9,24 @@ class NuContaFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+      padding: EdgeInsets.symmetric(vertical: 35, horizontal: 20),
       color: Color(0xFFF1F1F1),
       child: Row(
         children: <Widget>[
-          Icon(this.type),
+          Icon(
+            this.type,
+            color: Color(0xFF818181),
+          ),
           Flexible(
             child: Align(
               alignment: AlignmentDirectional.centerStart,
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: EdgeInsets.symmetric(horizontal: 12),
                 child: Text(
                   this.lastTransaction,
-                  style: TextStyle(
+                  style: Theme.of(context).textTheme.display3.copyWith(
                     fontSize: 11,
+                    color: Color(0xFF333333),
                   ),
                 ),
               ),
@@ -30,6 +34,7 @@ class NuContaFooter extends StatelessWidget {
           ),
           Icon(
             Icons.chevron_right,
+            color: Color(0xFF818181),
           ),
         ],
       ),

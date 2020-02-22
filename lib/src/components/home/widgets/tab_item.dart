@@ -36,7 +36,10 @@ class TabItem extends StatelessWidget {
             
             Text(
               this.label,
-              style: Theme.of(context).primaryTextTheme.overline,
+              style: Theme.of(context).textTheme.display1.copyWith(
+                fontWeight: FontWeight.bold,
+                fontSize: 11,
+              ),
             ),
           ],
         ),

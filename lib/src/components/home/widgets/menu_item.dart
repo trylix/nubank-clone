@@ -40,13 +40,18 @@ class MenuItem extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     this.label,
-                    style: Theme.of(context).primaryTextTheme.title,
+                    style: Theme.of(context).textTheme.display3.copyWith(
+                      fontSize: 14,
+                    ),
                     textAlign: TextAlign.start,
                   ),
 
                   this.extra != '' ? Text(
                     this.extra,
-                    style: Theme.of(context).primaryTextTheme.subtitle,
+                    style: Theme.of(context).textTheme.display3.copyWith(
+                      fontSize: 10,
+                      color: Colors.white54,
+                    ),
                     textAlign: TextAlign.start,
                   ) : Container(),
                 ],

@@ -76,10 +76,18 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   fonts:
-     - family: Gotham SSm
+     - family: Gotham SSm Light
        fonts:
          - asset: fonts/GothamSSm-Light.ttf
+     - family: Gotham SSm Medium
+       fonts:
          - asset: fonts/GothamSSm-Medium.ttf
+     - family: Gotham SSm Book
+       fonts:
          - asset: fonts/GothamSSm-Book.ttf
+     - family: Gotham SSm Bold
+       fonts:
          - asset: fonts/GothamSSm-Bold.ttf
+     - family: Gotham SSm Black
+       fonts:
          - asset: fonts/GothamSSm-Black.ttf

@@ -23,7 +23,9 @@ class Header extends StatelessWidget {
                 margin: EdgeInsets.only(left: 8),
                 child: Text(
                   this.name,
-                  style: Theme.of(context).primaryTextTheme.display1,
+                  style: Theme.of(context).textTheme.display4.copyWith(
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ],

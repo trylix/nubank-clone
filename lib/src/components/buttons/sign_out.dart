@@ -10,10 +10,12 @@ class SignOut extends StatelessWidget {
     return OutlineButton(
       onPressed: () {},
       child: Padding(
-        padding: EdgeInsets.all(14),
+        padding: EdgeInsets.all(15),
         child: Text(
           this.translation.toUpperCase(),
-          style: Theme.of(context).primaryTextTheme.display2,
+          style: Theme.of(context).textTheme.display4.copyWith(
+            fontSize: 13,
+          ),
         ),
       ),
       borderSide: BorderSide(

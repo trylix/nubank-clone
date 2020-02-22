@@ -10,23 +10,25 @@ class NuContaBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
       child: Padding(
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
         child: Align(
           alignment: AlignmentDirectional.centerStart,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
                 this.translation,
-                style: TextStyle(
-                  fontSize: 16,
+                style: Theme.of(context).textTheme.display3.copyWith(
+                  fontSize: 14,
+                  color: Color(0xFF666666),
                 ),  
               ),
               Text(
                 this.amount,
-                style: TextStyle(
-                  fontSize: 30,
+                style: Theme.of(context).textTheme.display3.copyWith(
+                  fontSize: 28,
+                  color: Colors.black87,
                 ),
               ),
             ],

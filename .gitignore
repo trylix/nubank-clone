@@ -35,3 +35,7 @@ lib/generated_plugin_registrant.dart
 
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+
+# Foram removidos os icones originais do NuBank
+icons/
+lib/src/themes/nu_icons.dart
