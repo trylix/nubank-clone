@@ -20,7 +20,7 @@ class AccountMenu extends StatelessWidget {
         child: ListView(
         scrollDirection: Axis.vertical,
         primary: true,
-        padding: EdgeInsets.only(left: 25, right: 25, top: 5),
+        padding: EdgeInsets.only(left: 35, right: 35, top: 5),
         children: <Widget>[
           Center(
             child: QrCode('NuBank Me Contrata'),

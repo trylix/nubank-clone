@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SignOut extends StatelessWidget {
   final String translation;
 
-  const SignOut(this.translation, {Key key}) : super(key: key);
+  const SignOut(this.translation) : super();
 
   @override
   Widget build(BuildContext context) {

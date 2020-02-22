@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 class Header extends StatelessWidget {
   final String name;
 
-  const Header(this.name, {Key key}) : super(key: key);
+  const Header(this.name) : super();
 
   @override
   Widget build(BuildContext context) {

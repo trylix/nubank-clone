@@ -4,7 +4,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 class QrCode extends StatelessWidget {
   final String codeKey;
 
-  const QrCode(this.codeKey, { Key key }) : super(key: key);
+  const QrCode(this.codeKey) : super();
 
   @override
   Widget build(BuildContext context) {
