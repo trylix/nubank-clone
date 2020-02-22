@@ -11,13 +11,15 @@ class DraggableCard {
   BehaviorSubject<bool> _animateUp;
 
   BehaviorSubject<AnimationController> _controller;
+
+  double _minCardPosition = 18;
   
-  double get currentPosition {
+  double get _currentPosition {
     return _coordY.value / _maxCoordY.value;
   }
 
   Offset get currentOffset {
-    return Offset(0, this._coordY.value);
+    return Offset(0, this._coordY.value - 20);
   }
 
   ValueStream<double> get stream {
@@ -35,7 +37,7 @@ class DraggableCard {
   init({AnimationController controller, double startY, double height}) {
     this._controller.add(controller);
     this._startCoordY.add(startY);
-    this._maxCoordY.add(height - this._startCoordY.value - 80);
+    this._maxCoordY.add(height - this._startCoordY.value - this._minCardPosition);
   }
 
   onDragUpdate(DragUpdateDetails details) {
@@ -49,12 +51,12 @@ class DraggableCard {
 
   onDragEnd(DragEndDetails details) {
     if (this._controller.value != null) {
-      this.handleAnimation(this._coordY.value, (this._animateUp.value || this.currentPosition <= 0.2) ? 0 : this._maxCoordY.value);
+      this.handleAnimation(this._coordY.value, (this._animateUp.value || this._currentPosition <= 0.2) ? 0 : this._maxCoordY.value);
     }
   }
 
   onTapCard() {
-    if (this.currentPosition == 1 && this._controller.value != null) {
+    if (this._currentPosition == 1 && this._controller.value != null) {
       this.handleAnimation(this._coordY.value, 0);
     }
   }

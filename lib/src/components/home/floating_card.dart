@@ -45,12 +45,12 @@ class _FloatingCardState extends State<FloatingCard>
       height: MediaQuery.of(context).size.height,
     );
 
-    return Stack(
-      alignment: Alignment.center,
-      children: <Widget>[
-        StreamBuilder(
-          stream: component.stream,
-          builder: (_, __) => Transform.translate(
+    return StreamBuilder(
+      stream: component.stream,
+      builder: (_, __) => Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          Transform.translate(
             key: _frameKey,
             offset: component.currentOffset,
             child: GestureDetector(
@@ -60,8 +60,8 @@ class _FloatingCardState extends State<FloatingCard>
               child: render(),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
