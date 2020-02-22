@@ -1,16 +1,20 @@
 import 'dart:math';
 
 import 'package:flutter/widgets.dart';
+import 'package:nubank/src/blocs/opacity_controller.dart';
 import 'package:rxdart/rxdart.dart';
 
-class DraggableCard {
+class DraggableController {
   BehaviorSubject<double> _coordY;
   BehaviorSubject<double> _maxCoordY;
   BehaviorSubject<double> _startCoordY;
 
   BehaviorSubject<bool> _animateUp;
 
-  BehaviorSubject<AnimationController> _controller;
+  BehaviorSubject<AnimationController> _animationController;
+  BehaviorSubject<OpacityController> _opacityController;
+
+  OpacityController _opacity;
 
   double _minCardPosition = 18;
   
@@ -18,6 +22,10 @@ class DraggableCard {
     return _coordY.value / _maxCoordY.value;
   }
 
+  double get _handleOpacity {
+    return (_coordY.value / _maxCoordY.value) * 1.2;
+  }
+  
   Offset get currentOffset {
     return Offset(0, this._coordY.value - 20);
   }
@@ -26,60 +34,64 @@ class DraggableCard {
     return this._coordY.stream;
   }
 
-  DraggableCard() {
+  DraggableController() {
     this._coordY = BehaviorSubject<double>.seeded(0);
     this._maxCoordY = BehaviorSubject<double>.seeded(0);
     this._startCoordY = BehaviorSubject<double>.seeded(0);
     this._animateUp = BehaviorSubject<bool>.seeded(false);
-    this._controller = BehaviorSubject<AnimationController>();
+    this._animationController = BehaviorSubject<AnimationController>();
+    this._opacityController = BehaviorSubject<OpacityController>();
   }
 
-  init({AnimationController controller, double startY, double height}) {
-    this._controller.add(controller);
+  init({AnimationController animationController, OpacityController opacityController, double startY, double height}) {
+    this._animationController.add(animationController);
+    this._opacityController.add(opacityController);
     this._startCoordY.add(startY);
     this._maxCoordY.add(height - this._startCoordY.value - this._minCardPosition);
   }
 
   onDragUpdate(DragUpdateDetails details) {
-    if (this._controller.value.isAnimating) {
-      this._controller.value.stop(canceled: true);
+    if (this._animationController.value.isAnimating) {
+      this._animationController.value.stop(canceled: true);
     }
 
     this._coordY.add(min(this._maxCoordY.value, max(0, this._coordY.value + details.delta.dy)));
+    this._opacityController.value.put(this._handleOpacity);
     this._animateUp.add(details.delta.dy < 0);
   }
 
   onDragEnd(DragEndDetails details) {
-    if (this._controller.value != null) {
+    if (this._animationController.value != null) {
       this.handleAnimation(this._coordY.value, (this._animateUp.value || this._currentPosition <= 0.2) ? 0 : this._maxCoordY.value);
     }
   }
 
   onTapCard() {
-    if (this._currentPosition == 1 && this._controller.value != null) {
+    if (this._currentPosition == 1 && this._animationController.value != null) {
       this.handleAnimation(this._coordY.value, 0);
     }
   }
 
   handleAnimation(double current, double next) {
-    this._controller.value.reset();
+    this._animationController.value.reset();
 
     Tween<double> interpolate = Tween<double>(begin: current, end: next);
 
-    Animation animation = interpolate.animate(this._controller.value);
+    Animation animation = interpolate.animate(this._animationController.value);
 
     Function listener = () {
       _coordY.add(animation.value);
+      _opacityController.value.put(this._handleOpacity);
     };
 
-    this._controller.value.addListener(listener);
+    this._animationController.value.addListener(listener);
 
-    this._controller.value.addStatusListener((AnimationStatus status) {
+    this._animationController.value.addStatusListener((AnimationStatus status) {
       if (status == AnimationStatus.completed) {
-        this._controller.value.removeListener(listener);
+        this._animationController.value.removeListener(listener);
       }
     });
 
-    this._controller.value.forward();
+    this._animationController.value.forward();
   }
 }

@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:nubank/src/blocs/opacity_controller.dart';
 import 'package:nubank/src/components/buttons/sign_out.dart';
 import 'package:nubank/src/components/home/widgets/account_details.dart';
 import 'package:nubank/src/components/home/widgets/menu_item.dart';
+import 'package:provider/provider.dart';
 
 import 'widgets/qr_code.dart';
 
 class AccountMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(
+    OpacityController opacity = Provider.of<OpacityController>(context);
+    
+    return StreamBuilder(
+      stream: opacity.stream,
+      builder: (_, __) => Expanded(
+      child: Opacity(
+        opacity: 1 - opacity.result,
+        child: ListView(
         scrollDirection: Axis.vertical,
         primary: true,
         padding: EdgeInsets.only(left: 25, right: 25, top: 5),
@@ -96,6 +104,8 @@ class AccountMenu extends StatelessWidget {
           )
         ],
       ),
+      ),
+    ),
     );
   }
 }

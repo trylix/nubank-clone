@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nubank/src/blocs/draggable_card.dart';
+import 'package:nubank/src/blocs/draggable_controller.dart';
+import 'package:nubank/src/blocs/opacity_controller.dart';
 import 'package:provider/provider.dart';
 
 class FloatingCard extends StatefulWidget {
@@ -37,26 +38,28 @@ class _FloatingCardState extends State<FloatingCard>
 
   @override
   Widget build(BuildContext context) {
-    DraggableCard component = Provider.of<DraggableCard>(context);
+    DraggableController draggable = Provider.of<DraggableController>(context);
+    OpacityController opacity = Provider.of<OpacityController>(context);
 
-    component.init(
-      controller: _controller,
+    draggable.init(
+      animationController: _controller,
+      opacityController: opacity,
       startY: _startY,
       height: MediaQuery.of(context).size.height,
     );
 
     return StreamBuilder(
-      stream: component.stream,
+      stream: draggable.stream,
       builder: (_, __) => Stack(
         alignment: Alignment.center,
         children: <Widget>[
           Transform.translate(
             key: _frameKey,
-            offset: component.currentOffset,
+            offset: draggable.currentOffset,
             child: GestureDetector(
-              onPanUpdate: component.onDragUpdate,
-              onPanEnd: component.onDragEnd,
-              onTap: component.onTapCard,
+              onPanUpdate: draggable.onDragUpdate,
+              onPanEnd: draggable.onDragEnd,
+              onTap: draggable.onTapCard,
               child: render(),
             ),
           ),

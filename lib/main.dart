@@ -3,7 +3,8 @@ import 'package:nubank/routes.dart';
 import 'package:nubank/src/themes/styles.dart';
 import 'package:provider/provider.dart';
 
-import 'package:nubank/src/blocs/draggable_card.dart';
+import 'package:nubank/src/blocs/draggable_controller.dart';
+import 'package:nubank/src/blocs/opacity_controller.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<DraggableCard>.value(value: DraggableCard()),
+        Provider<DraggableController>.value(value: DraggableController()),
+        Provider<OpacityController>.value(value: OpacityController()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
