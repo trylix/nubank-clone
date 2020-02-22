@@ -91,3 +91,6 @@ flutter:
      - family: Gotham SSm Black
        fonts:
          - asset: fonts/GothamSSm-Black.ttf
+     - family: NuIcons
+       fonts:
+         - asset: icons/NuIcons.ttf

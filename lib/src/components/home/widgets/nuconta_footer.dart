@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nubank/src/themes/nu_icons.dart';
 
 class NuContaFooter extends StatelessWidget {
   final String lastTransaction;
@@ -33,8 +34,9 @@ class NuContaFooter extends StatelessWidget {
             ),
           ),
           Icon(
-            Icons.chevron_right,
+            NuIcons.mini_chevron_right,
             color: Color(0xFF818181),
+            size: 16,
           ),
         ],
       ),

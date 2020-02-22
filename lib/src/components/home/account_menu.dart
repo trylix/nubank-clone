@@ -3,6 +3,7 @@ import 'package:nubank/src/blocs/opacity_controller.dart';
 import 'package:nubank/src/components/buttons/sign_out.dart';
 import 'package:nubank/src/components/home/widgets/account_details.dart';
 import 'package:nubank/src/components/home/widgets/menu_item.dart';
+import 'package:nubank/src/themes/nu_icons.dart';
 import 'package:provider/provider.dart';
 
 import 'widgets/qr_code.dart';
@@ -38,7 +39,7 @@ class AccountMenu extends StatelessWidget {
                   color: Theme.of(context).hintColor,
                 ),
                 MenuItem(
-                  Icons.help_outline,
+                  NuIcons.help,
                   'Me ajuda',
                   '',
                 ),
@@ -47,7 +48,7 @@ class AccountMenu extends StatelessWidget {
                   color: Theme.of(context).hintColor,
                 ),
                 MenuItem(
-                  Icons.person,
+                  NuIcons.user,
                   'Perfil',
                   'Nome de preferência, telefone, e-mail',
                 ),
@@ -56,7 +57,7 @@ class AccountMenu extends StatelessWidget {
                   color: Theme.of(context).hintColor,
                 ),
                 MenuItem(
-                  Icons.monetization_on,
+                  NuIcons.money_coins,
                   'Configurar NuConta',
                   '',
                 ),
@@ -65,7 +66,7 @@ class AccountMenu extends StatelessWidget {
                   color: Theme.of(context).hintColor,
                 ),
                 MenuItem(
-                  Icons.work,
+                  NuIcons.store,
                   'Pedir conta PJ',
                   '',
                 ),
@@ -74,7 +75,7 @@ class AccountMenu extends StatelessWidget {
                   color: Theme.of(context).hintColor,
                 ),
                 MenuItem(
-                  Icons.phone_android,
+                  NuIcons.phone,
                   'Configurações do app',
                   '',
                 ),

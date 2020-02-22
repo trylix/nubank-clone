@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nubank/src/themes/nu_icons.dart';
 
 class NuContaHeader extends StatelessWidget {
   final String translation;
@@ -13,7 +14,7 @@ class NuContaHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Icon(
-            Icons.monetization_on,
+            NuIcons.money_coins,
             color: Colors.grey,
           ),
           Flexible(
@@ -32,7 +33,7 @@ class NuContaHeader extends StatelessWidget {
             ),
           ),
           Icon(
-            Icons.remove_red_eye,
+            NuIcons.invisible,
             color: Colors.grey,
           ),
         ],

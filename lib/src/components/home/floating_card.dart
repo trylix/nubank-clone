@@ -4,6 +4,7 @@ import 'package:nubank/src/blocs/opacity_controller.dart';
 import 'package:nubank/src/components/home/widgets/nuconta_body.dart';
 import 'package:nubank/src/components/home/widgets/nuconta_footer.dart';
 import 'package:nubank/src/components/home/widgets/nuconta_header.dart';
+import 'package:nubank/src/themes/nu_icons.dart';
 import 'package:provider/provider.dart';
 
 class FloatingCard extends StatefulWidget {
@@ -94,7 +95,7 @@ class _FloatingCardState extends State<FloatingCard>
                     NuContaBody('Saldo disponível', 'R\$ 0,00'),
                     NuContaFooter(
                         'Compra em Central Presentes de R\$ 60,00 no débito em 10 FEV',
-                        Icons.credit_card),
+                        NuIcons.card),
                   ],
                 ),
               )

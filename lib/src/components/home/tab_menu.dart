@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nubank/src/blocs/opacity_controller.dart';
 import 'package:nubank/src/components/home/widgets/tab_item.dart';
+import 'package:nubank/src/themes/nu_icons.dart';
 import 'package:provider/provider.dart';
 
 class TabMenu extends StatelessWidget {
@@ -30,16 +31,16 @@ class TabMenu extends StatelessWidget {
                 padding: EdgeInsets.only(left: 25, right: 35),
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
-                  TabItem(icon: Icons.payment, label: 'Pagar'),
+                  TabItem(icon: NuIcons.bar_code, label: 'Pagar'),
                   TabItem(
-                      icon: Icons.phone_android, label: 'Recarga de celular'),
-                  TabItem(icon: Icons.arrow_downward, label: 'Depositar'),
-                  TabItem(icon: Icons.arrow_upward, label: 'Transferir'),
-                  TabItem(icon: Icons.question_answer, label: 'Cobrar'),
-                  TabItem(icon: Icons.lock_open, label: 'Bloquear cartão'),
-                  TabItem(icon: Icons.help_outline, label: 'Me ajuda'),
-                  TabItem(icon: Icons.person_add, label: 'Indicar amigos'),
-                  TabItem(icon: Icons.reorder, label: 'Organizar atalhos'),
+                      icon: NuIcons.phone, label: 'Recarga de celular'),
+                  TabItem(icon: NuIcons.get_money, label: 'Depositar'),
+                  TabItem(icon: NuIcons.give_money, label: 'Transferir'),
+                  TabItem(icon: NuIcons.request_money_1, label: 'Cobrar'),
+                  TabItem(icon: NuIcons.lock_off, label: 'Bloquear cartão'),
+                  TabItem(icon: NuIcons.help, label: 'Me ajuda'),
+                  TabItem(icon: NuIcons.add_user, label: 'Indicar amigos'),
+                  TabItem(icon: NuIcons.sort, label: 'Organizar atalhos'),
                 ],
               ),
             ),

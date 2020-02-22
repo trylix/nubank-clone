@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nubank/src/blocs/draggable_controller.dart';
+import 'package:nubank/src/themes/nu_icons.dart';
 import 'package:provider/provider.dart';
 
 class Header extends StatelessWidget {
@@ -37,8 +38,8 @@ class Header extends StatelessWidget {
                 ),
                 SizedBox(height: 3),
                 Icon(
-                  draggable.onTop ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_up,
-                  color: Theme.of(context).primaryIconTheme.color,
+                  draggable.onTop ? NuIcons.mini_chevron_down : NuIcons.mini_chevron_up,
+                  color: Colors.white54,
                 )
               ],
             )),
