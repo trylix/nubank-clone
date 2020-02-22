@@ -11,7 +11,9 @@ class TabMenu extends StatelessWidget {
     return StreamBuilder(
       stream: opacity.stream,
       initialData: 1.0,
-      builder: (_, AsyncSnapshot<double> snapshot) => Stack(
+      builder: (_, AsyncSnapshot<double> snapshot) => IgnorePointer(
+        ignoring: (1 - snapshot.data) < 1,
+        child: Stack(
         alignment: Alignment.bottomCenter,
         children: <Widget>[
           Container(
@@ -43,6 +45,7 @@ class TabMenu extends StatelessWidget {
             ),
           ),
         ],
+      ),
       ),
     );
   }
