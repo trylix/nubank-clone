@@ -50,6 +50,7 @@ class DraggableController {
     this._opacityController.add(opacityController);
     this._startCoordY.add(startY);
     this._maxCoordY.add(height - this._startCoordY.value - this._minCardPosition);
+    this._onTop.add(true);
   }
 
   onDragUpdate(DragUpdateDetails details) {
