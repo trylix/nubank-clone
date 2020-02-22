@@ -10,6 +10,7 @@ class DraggableController {
   BehaviorSubject<double> _startCoordY;
 
   BehaviorSubject<bool> _animateUp;
+  BehaviorSubject<bool> _onTop;
 
   BehaviorSubject<AnimationController> _animationController;
   BehaviorSubject<OpacityController> _opacityController;
@@ -25,6 +26,10 @@ class DraggableController {
   double get _handleOpacity {
     return (_coordY.value / _maxCoordY.value) * 1.2;
   }
+
+  bool get onTop {
+    return _onTop.value;
+  }
   
   Offset get currentOffset {
     return Offset(0, this._coordY.value - 20);
@@ -39,6 +44,7 @@ class DraggableController {
     this._maxCoordY = BehaviorSubject<double>.seeded(0);
     this._startCoordY = BehaviorSubject<double>.seeded(0);
     this._animateUp = BehaviorSubject<bool>.seeded(false);
+    this._onTop = BehaviorSubject<bool>.seeded(false);
     this._animationController = BehaviorSubject<AnimationController>();
     this._opacityController = BehaviorSubject<OpacityController>();
   }
@@ -66,9 +72,13 @@ class DraggableController {
     }
   }
 
-  onTapCard() {
-    if (this._currentPosition == 1 && this._animationController.value != null) {
+  onTapCard({ onHeader = false }) {
+    if (this._animationController.value == null) return;
+
+    if (this._currentPosition == 1) {
       this.handleAnimation(this._coordY.value, 0);
+    } else if (this._currentPosition == 0 && onHeader) {
+      this.handleAnimation(this._coordY.value, this._maxCoordY.value);
     }
   }
 
@@ -82,6 +92,7 @@ class DraggableController {
     Function listener = () {
       _coordY.add(animation.value);
       _opacityController.value.put(this._handleOpacity);
+      _onTop.add(animation.value == 0);
     };
 
     this._animationController.value.addListener(listener);
