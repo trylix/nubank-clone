@@ -7,15 +7,20 @@ class TabMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     OpacityController opacity = Provider.of<OpacityController>(context);
-    
+
     return StreamBuilder(
       stream: opacity.stream,
-      builder: (_, __) => Opacity(
-        opacity: opacity.result,
-        child: Stack(
-          alignment: Alignment.bottomCenter,
-          children: <Widget>[
-            Container(
+      initialData: 1.0,
+      builder: (_, AsyncSnapshot<double> snapshot) => Stack(
+        alignment: Alignment.bottomCenter,
+        children: <Widget>[
+          Container(
+            height: (1 - snapshot.data) < .2 ? 0 : 200,
+            color: Theme.of(context).primaryColor,
+          ),
+          Opacity(
+            opacity: 1 - snapshot.data,
+            child: Container(
               height: 100,
               margin: EdgeInsets.symmetric(vertical: 20),
               child: ListView(
@@ -36,8 +41,8 @@ class TabMenu extends StatelessWidget {
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

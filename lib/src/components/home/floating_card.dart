@@ -53,12 +53,13 @@ class _FloatingCardState extends State<FloatingCard>
 
     return StreamBuilder(
       stream: draggable.stream,
-      builder: (_, __) => Stack(
+      initialData: draggable.stream.value,
+      builder: (_, AsyncSnapshot<double> snapshot) => Stack(
         alignment: Alignment.center,
         children: <Widget>[
           Transform.translate(
             key: _frameKey,
-            offset: draggable.currentOffset,
+            offset: Offset(0, snapshot.data - 20),
             child: GestureDetector(
               onPanUpdate: draggable.onDragUpdate,
               onPanEnd: draggable.onDragEnd,

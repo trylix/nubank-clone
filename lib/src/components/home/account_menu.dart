@@ -14,9 +14,10 @@ class AccountMenu extends StatelessWidget {
     
     return StreamBuilder(
       stream: opacity.stream,
-      builder: (_, __) => Expanded(
+      initialData: 0.0,
+      builder: (_, AsyncSnapshot<double> snapshot) => Expanded(
       child: Opacity(
-        opacity: 1 - opacity.result,
+        opacity: snapshot.data,
         child: ListView(
         scrollDirection: Axis.vertical,
         primary: true,

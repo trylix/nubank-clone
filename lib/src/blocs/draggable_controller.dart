@@ -30,10 +30,6 @@ class DraggableController {
   bool get onTop {
     return _onTop.value;
   }
-  
-  Offset get currentOffset {
-    return Offset(0, this._coordY.value - 20);
-  }
 
   ValueStream<double> get stream {
     return this._coordY.stream;
@@ -62,7 +58,7 @@ class DraggableController {
     }
 
     this._coordY.add(min(this._maxCoordY.value, max(0, this._coordY.value + details.delta.dy)));
-    this._opacityController.value.put(this._handleOpacity);
+    this._opacityController.value.put(this._handleOpacity > 1 ? 1 : this._handleOpacity);
     this._animateUp.add(details.delta.dy < 0);
   }
 
@@ -91,7 +87,7 @@ class DraggableController {
 
     Function listener = () {
       _coordY.add(animation.value);
-      _opacityController.value.put(this._handleOpacity);
+      _opacityController.value.put(this._handleOpacity > 1 ? 1 : this._handleOpacity);
       _onTop.add(animation.value == 0);
     };
 

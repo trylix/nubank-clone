@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nubank/src/blocs/draggable_controller.dart';
-import 'package:nubank/src/blocs/opacity_controller.dart';
 import 'package:provider/provider.dart';
 
 class Header extends StatelessWidget {
@@ -11,7 +10,6 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    OpacityController opacity = Provider.of<OpacityController>(context);
     DraggableController draggable = Provider.of<DraggableController>(context);
 
     return StreamBuilder(

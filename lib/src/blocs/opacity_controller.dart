@@ -9,12 +9,6 @@ class OpacityController {
     return this._opacity.stream;
   }
 
-  double get result {
-    double opacity = 1.0 - max(0, min(1, this._opacity.value));
-
-    return opacity.isNaN ? 1 : opacity;
-  }
-
   OpacityController() {
     this._opacity = BehaviorSubject<double>.seeded(0);
 
