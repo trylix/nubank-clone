@@ -92,7 +92,7 @@ class _FloatingCardState extends State<FloatingCard>
                 child: Column(
                   children: <Widget>[
                     NuContaHeader('NuConta'),
-                    NuContaBody('Saldo disponível', 'R\$ 0,00'),
+                    NuContaBody('Saldo disponível', 'R\$ 1.000,00'),
                     NuContaFooter(
                         'Compra em Central Presentes de R\$ 60,00 no débito em 10 FEV',
                         NuIcons.card),

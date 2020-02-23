@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         theme: appTheme(),
         color: Theme.of(context).primaryColor,
         routes: routes,
-        initialRoute: '/',
+        initialRoute: '/splash',
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nubank/src/components/animations/widget_slider.dart';
 import 'package:nubank/src/components/home/floating_card.dart';
 import 'package:nubank/src/components/home/header.dart';
 import 'package:nubank/src/components/home/account_menu.dart';
@@ -25,8 +26,16 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          TabMenu(),
-          FloatingCard(),
+          WidgetSlider(
+            child: TabMenu(),
+            offset: Offset(.3, 0),
+            duration: Duration(milliseconds: 2500),
+          ),
+          WidgetSlider(
+            child: FloatingCard(),
+            offset: Offset(1, 0),
+            duration: Duration(milliseconds: 2800),
+          ),
         ],
       ),
     );

@@ -28,7 +28,7 @@ class TabMenu extends StatelessWidget {
               margin: EdgeInsets.symmetric(vertical: 20),
               child: ListView(
                 primary: true,
-                padding: EdgeInsets.only(left: 25, right: 35),
+                padding: EdgeInsets.only(left: 20, right: 35),
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   TabItem(icon: NuIcons.bar_code, label: 'Pagar'),
