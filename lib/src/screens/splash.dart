@@ -28,12 +28,23 @@ class _SplashScreenState extends State<SplashScreen> {
           Container(
             color: Theme.of(context).primaryColor,
           ),
-          Center(
-            child: Icon(
-              NuIcons.nu_logo_25pt,
-              color: Colors.white,
-              size: 80,
-            ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                NuIcons.nu_logo_25pt,
+                color: Colors.white,
+                size: 80,
+              ),
+              Text(
+                'Flutter Clone',
+                style: TextStyle(
+                  color: Colors.white70,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
+            ],
           )
         ],
       ),
