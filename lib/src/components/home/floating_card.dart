@@ -16,8 +16,8 @@ class _FloatingCardState extends State<FloatingCard>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
-  GlobalKey _frameKey;
-  double _startY;
+  GlobalKey _frameKey = GlobalKey();
+  double _startY = 0;
 
   @override
   void initState() {
@@ -26,18 +26,17 @@ class _FloatingCardState extends State<FloatingCard>
     WidgetsBinding.instance.addPostFrameCallback((_) {
       RenderBox render = _frameKey.currentContext.findRenderObject();
 
-      setState(() {
-        this._startY = render.localToGlobal(Offset.zero).dy;
-      });
+      if (!render.debugNeedsLayout) {
+        setState(() {
+          this._startY = render.localToGlobal(Offset.zero).dy;
+        });
+      }
     });
 
     _controller = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 150),
     );
-
-    _frameKey = GlobalKey();
-    _startY = 0;
   }
 
   @override
